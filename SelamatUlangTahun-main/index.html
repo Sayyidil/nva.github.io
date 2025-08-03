@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Nova</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <!-- 🎥 Video Background -->
+ <video class="bg-video" autoplay muted loop playsinline>
+  <source src="backg.mp4" type="video/mp4">
+</video>
+
+  <!-- ❤️ Hati Jatuh -->
+  <div id="hearts-container"></div>
+
+  <!-- ⏳ Preloader -->
+  <div id="preloader">
+    <div style="width:10%;background:#eee;border-radius:10px;">
+      <div id="bar"></div>
+    </div>
+  </div>
+
+  <!-- 🕒 Page 1: Countdown -->
+  <div class="page active" id="page1">
+    <div class="countdown" id="countdown">3</div>
+  </div>
+
+  <!-- 🎉 Page 2: Ucapan -->
+  <div class="page" id="page2">
+    <img src="img/hbd.png" class="main-img" />
+    <h1 class="title typing">HAPPY 18TH BIRTHDAY</h1>
+    <p class="date">04-08-2025</p>
+    <p class="name">Nova Sardina Mita</p>
+    <button onclick="goToPage(3)">Lanjut ➡️</button>
+  </div>
+
+  <!-- 🖼️ Page 3: Slideshow + Pesan -->
+  <div class="page" id="page3">
+    <img id="slideshow" class="slide-image" src="img/IMG-20250719-WA0003.jpg" />
+    <div class="message" id="message"></div>
+    <button onclick="nextMessage()">NEXT</button>
+  </div>
+
+  <!-- 💌 Page 4: Surat Cinta -->
+  <div class="page" id="page4">
+    <div class="love-letter">
+      <h2>Dear Nova ❤️</h2>
+      <p>
+       SELAMATT ULANG TAHUNN SAYANGGG💐💐 <br>
+
+anjaiii 18 tahunn mii sayanggkuuu kiw kiww, selamatt ulangg tahunn yaa sayanggkuu cintaaakuuu duniaaakuuu princeeessskuuuuu, di ulang tahunn yang ke 18 ta inii semoga dikelilingi dengann rasa bahagiaa, semoga dijauhkan darii hal’ yang bisa buat kii sedihh, semoga dilimpahkan segala rezekinya, semogaa apa yang disemogakann tercapai sayangg, dan semogaa pacarrkuu inii tidaa bakalnn jii berpindahh hatii selama ldr nantii😭 <br>
+
+makasiii sayangg, makasii karnaa sudaa mau terimaa kaa apa adanyaa, sudaa mauu jalanii sama’ susah senangnyaa sama’, makasii karnaa bisa jadii tempat kuu pulang, tempatkuu bercerita, tempatkuu berkeluhh kesahh, jangan lupa begitu ki juga ke saya sayangg dii, ada ka untuk kitaa sayangg, mauu ka jaga ki mau ka lindungii ki darii hal’ yang bisa buat ki sedihh, mau ka jadii sumber kebahagiaan taa sayanggg <br>
+
+sayanggg mau ki tauu, kitaa alasan dibalikk banyak na rasaa bahagiakuu, maupun senyum’ ku selama inii sayangg, kitaa orangg yangg buatt ka semangatt hadapii harii’ kuu sayangg, semenjak masuk kii dihidup kuu banyak sekalii hal’ baruu yang pertama kalii ku lakukann sayangg, banyak sekalii yang belum bisaa ku ungkapkan lewat kata’ tapii yang jelass pentingg sekalii ki di kehidupan kuu sayangg <br>
+
+sama mau ka juga mintaa maaf, maaff sayanggg belum bisa ka jadi pacar yangg selama ini diharapkan, sadar ka banyak sekali kekurangan kuu, mintaa maaf ka jugaa sayangg selalu ka bikin ki bm, selalu ka gagal mengertii kii, selalu ka kasii kecewa ki dengan sikap kuu, tapii sayangg selaluu ka mauu sama kitaa, mau ka sama’ kitaa teruss, boleh sayangg?☹ <br>
+
+semogaa yangg terbaik untuk kitaa di ulang tahun ta yang ke18  ini sayangg🥳 <br>
+
+HAPPYY BIRTHDAY SAYANGGG🎂
+
+      </p>
+      <button onclick="goToPage(5)">Lanjut ➡️</button>
+    </div>
+  </div>
+
+  <!-- 📸 Page 5: Galeri Akhir -->
+  <div class="page" id="page5">
+    <h2 class="final-title">Happy Eighteen Sayanggkuuu💖</h2>
+    <div class="gallery" id="gallery"></div>
+    <p class="final-text">Selamat ulang tahun sayangku ❤️</p>
+  </div>
+
+  <!-- 🎵 Musik Background -->
+  <audio id="bg-music" loop>
+    <source src="monokrom.mp3" type="audio/mp3" />
+  </audio>
+
+  <!-- 🎵 Tombol Musik -->
+  <div id="music-btn">
+    <button onclick="playMusic()">🎵</button>
+  </div>
+
+  <!-- 🔧 Script -->
+  <script src="script.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      const bar = document.getElementById('bar');
+      let load = 0;
+      const preloadInterval = setInterval(() => {
+        load += 1;
+        bar.style.width = load + '%';
+        if (load >= 100) {
+          clearInterval(preloadInterval);
+          document.getElementById('preloader').style.display = 'none';
+          initPage();
+        }
+      }, 20);
+    });
+  </script>
+</body>
+</html>
