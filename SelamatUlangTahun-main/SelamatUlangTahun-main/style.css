@@ -1,0 +1,294 @@
+/* Reset & Font */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  background: black;
+  position: relative;
+}
+
+/* 🎥 Video Background */
+#background-video {
+ position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* ⏳ Preloader */
+#preloader {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+#preloader #bar {
+  height: 10px;
+  background: #f06292;
+  width: 0%;
+  border-radius: 10px;
+  transition: width 0.2s ease-in-out;
+}
+
+/* Halaman */
+.page {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.409);
+  text-align: center;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+}
+
+.active {
+  display: flex;
+}
+
+/* 🕒 Countdown */
+.countdown {
+  font-size: 6em;
+  color: #ff4081;
+  font-family: 'Poppins', cursive;
+  animation: pulse 1s infinite;
+}
+
+/* ✍️ Teks Animasi Ketik */
+.typing {
+  width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #ff4081;
+  animation: typing 4s steps(40, end), blink 0.7s step-end infinite;
+  -webkit-animation: typing 4s steps(40, end), blink 0.7s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* 🎉 Welcome Page */
+.main-img {
+  width: 250px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  font-size: 3em;
+  color: #c2185b;
+  font-family: 'Poppins', cursive;
+}
+
+.date, .name {
+  font-size: 1.2em;
+  color: #880e4f;
+}
+
+/* 🎈 Tombol */
+button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #f06292;
+  color: white;
+  font-size: 1em;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s, background 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+  background-color: #ec407a;
+}
+
+/* 📷 Slideshow */
+.slide-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  transition: opacity 0.5s;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* 💬 Pesan */
+.message {
+  font-size: 1.4em;
+  color: #6a1b9a;
+  font-family: 'Poppins', cursive;
+  animation: fadeIn 1s;
+  max-width: 90%;
+}
+
+/* 💌 Surat Cinta */
+.love-letter {
+  max-width: 600px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  color: #880e4f;
+  font-family: 'Poppins', cursive;
+  z-index: 2;
+}
+
+.love-letter h2 {
+  margin-bottom: 15px;
+}
+
+/* 📸 Galeri Horizontal Scroll */
+.gallery {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 10px 20px;
+  max-width: 100vw;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.gallery::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gallery::-webkit-scrollbar-thumb {
+  background: #f06292;
+  border-radius: 4px;
+}
+
+.gallery img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+.gallery img:hover {
+  transform: scale(1.1);
+}
+
+/* 🎆 Final Text */
+.final-title {
+  font-family: 'Poppins', cursive;
+  font-size: 2em;
+  color: #c2185b;
+  margin-bottom: 20px;
+}
+
+.final-text {
+  font-size: 1.4em;
+  font-family: 'Poppins', cursive;
+  color: #fff;
+  text-shadow: 0 0 5px #ff80ab, 0 0 15px #ff80ab, 0 0 30px #ff4081;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 5px #ff80ab; }
+  to { text-shadow: 0 0 20px #ff4081; }
+}
+
+/* 🎵 Musik Tombol */
+#music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+#music-btn button {
+  border-radius: 50%;
+  padding: 16px;
+  background-color: #f06292;
+  font-size: 1.5em;
+  width: 60px;
+  height: 60px;
+}
+
+/* ❤️ Efek Hati Jatuh */
+#hearts-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff80ab;
+  transform: rotate(45deg);
+  animation: fall 5s linear infinite;
+}
+
+.heart::before, .heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff80ab;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+.heart::after {
+  top: 0;
+  left: -10px;
+}
+
+/* Animasi Umum */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fall {
+  0% { top: -10%; opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}
